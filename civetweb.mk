@@ -12,6 +12,5 @@ $(PKG)_DEPS			     := zlib
 
 define $(PKG)_BUILD
 		cd '$(1)' && \
-			$(MAKE) -C '$(1)' lib WITH_IPV6=1 WITH_ZLIB=1 COPT="-DNDEBUG -DNO_CGI -DNO_SSL -DUSE_ZLIB" -j $(JOBS) && \
-			$(MAKE) -C '$(1)' install-lib PREFIX='$(PREFIX)/$(TARGET)'
+			$(MAKE) -C '$(1)' lib install-lib install-headers PREFIX='$(PREFIX)/$(TARGET)' WITH_IPV6=1 WITH_ZLIB=1 WITH_CPP=1 COPT="-DNDEBUG -DNO_CGI -DNO_SSL -DUSE_ZLIB" -j $(JOBS)
 endef
